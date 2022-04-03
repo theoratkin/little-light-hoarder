@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal on_jump
-
 var can_move = true
 
 var snap = false

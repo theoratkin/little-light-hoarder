@@ -1,20 +1,26 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://texture/characters.png" type="Texture" id=2]
-[ext_resource path="res://script/player.gd" type="Script" id=3]
+[ext_resource path="res://script/player.gd" type="Script" id=2]
+[ext_resource path="res://texture/characters.png" type="Texture" id=3]
+[ext_resource path="res://prefab/light.tscn" type="PackedScene" id=4]
+[ext_resource path="res://script/game.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.333
 height = 1.296
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 0, 8, 8 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -22,9 +28,15 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 3.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
 [node name="root" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="world" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -44,12 +56,32 @@ offset_h = -0.81
 
 [node name="player" type="KinematicBody2D" parent="."]
 position = Vector2( 4, 108 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="shape" type="CollisionShape2D" parent="player"]
 shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = SubResource( 4 )
-animation = "idle"
+animation = "jump"
 offset = Vector2( 1, 0 )
+
+[node name="light" type="Light2D" parent="."]
+visible = false
+position = Vector2( 256, 64 )
+scale = Vector2( 1, -1 )
+mode = 3
+
+[node name="lights" type="Node2D" parent="."]
+
+[node name="light" parent="lights" instance=ExtResource( 4 )]
+position = Vector2( 75, 87 )
+
+[node name="light2" parent="lights" instance=ExtResource( 4 )]
+position = Vector2( 129, 52 )
+
+[node name="light_mask_viewport" type="Viewport" parent="."]
+size = Vector2( 512, 128 )
+disable_3d = true
+usage = 1
+render_target_update_mode = 3
