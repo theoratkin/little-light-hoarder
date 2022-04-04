@@ -3,7 +3,7 @@ builddir = build
 name = little-light-hoarder
 version := $(file < VERSION)
 butler = butler push --userversion $(version)
-butler_target = theogen/treasure
+butler_target = thokr/little-light-hoarder
 
 
 all: web linux64 win64 mac
