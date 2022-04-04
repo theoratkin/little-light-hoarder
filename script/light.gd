@@ -26,4 +26,5 @@ func _on_light_body_entered(_body):
 	light_mask_node.queue_free()
 	$shape.queue_free()
 	$sprite.queue_free()
+	$particles.queue_free()
 	$sound.play()
