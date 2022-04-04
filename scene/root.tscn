@@ -288,7 +288,7 @@ script = ExtResource( 11 )
 [node name="container" type="VBoxContainer" parent="gui/credits"]
 margin_left = 32.0
 margin_right = 864.0
-margin_bottom = 112.0
+margin_bottom = 150.0
 
 [node name="text" type="Label" parent="gui/credits/container"]
 margin_right = 832.0

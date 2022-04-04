@@ -99,7 +99,7 @@ position = Vector2( 105, 93 )
 [node name="thanks" type="Sprite" parent="lights"]
 visible = false
 light_mask = 2
-position = Vector2( 112, 80 )
+position = Vector2( 114, 80 )
 texture = ExtResource( 2 )
 
 [node name="exit" type="Node2D" parent="."]
