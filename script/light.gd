@@ -24,4 +24,6 @@ func light_up():
 func _on_light_body_entered(_body):
 	get_node("/root/root").on_light_collect()
 	light_mask_node.queue_free()
-	queue_free()
+	$shape.queue_free()
+	$sprite.queue_free()
+	$sound.play()
