@@ -8,6 +8,8 @@ var run_speed = 50
 var jump_speed = 160
 var gravity = 400
 
+var ignore_teleport = false
+
 var velocity = Vector2()
 
 var startx
@@ -81,6 +83,7 @@ func get_input():
 
 
 func _physics_process(delta):
+	ignore_teleport = false
 	velocity.y += gravity * delta
 	get_input()
 	if not snap:

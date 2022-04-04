@@ -10,6 +10,10 @@ onready var light_node = get_node("/root/root/light")
 var light_mask_node
 
 func _ready():
+	if visible:
+		light_up()
+
+func light_up():
 	if not is_exit:
 		light_mask_node = light_mask_prefab.instance()
 	else:
@@ -18,5 +22,6 @@ func _ready():
 	light_mask_node.global_position = global_position
 
 func _on_light_body_entered(_body):
+	get_node("/root/root").on_light_collect()
 	light_mask_node.queue_free()
 	queue_free()
