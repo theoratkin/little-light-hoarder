@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.333
-height = 1.296
+height = 0.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -83,6 +83,7 @@ z_index = 1
 script = ExtResource( 2 )
 
 [node name="shape" type="CollisionShape2D" parent="player"]
+position = Vector2( 0, 0.679 )
 shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="player"]

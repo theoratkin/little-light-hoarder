@@ -9,6 +9,7 @@ var player_start_pos
 
 var current_scene = null
 
+var total_lights = 48
 var lights_collected = 0
 
 func _ready():
