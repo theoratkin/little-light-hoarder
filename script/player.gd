@@ -13,7 +13,7 @@ var velocity = Vector2()
 var startx
 
 onready var sprite = get_node("sprite")
-var eyelids
+onready var eyes = get_node("eyes")
 
 var gender
 
@@ -70,12 +70,14 @@ func get_input():
 	if !right and !left:
 		if is_on_floor():
 			sprite.play("idle")
+			eyes.play("idle")
 		flip(false)
 		align_position_to_pixels()
 	
 	if !is_on_floor():
 		if !right and !left:
 			sprite.play("jump")
+			eyes.play("jump")
 
 
 func _physics_process(delta):

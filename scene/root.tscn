@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://script/player.gd" type="Script" id=2]
@@ -35,6 +35,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 8, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 16, 8, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "jump",
+"speed": 3.0
+} ]
+
 [node name="root" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -63,7 +88,13 @@ shape = SubResource( 1 )
 
 [node name="sprite" type="AnimatedSprite" parent="player"]
 frames = SubResource( 4 )
-animation = "jump"
+animation = "idle"
+offset = Vector2( 1, 0 )
+
+[node name="eyes" type="AnimatedSprite" parent="player"]
+light_mask = 2
+frames = SubResource( 9 )
+animation = "idle"
 offset = Vector2( 1, 0 )
 
 [node name="light" type="Light2D" parent="."]
