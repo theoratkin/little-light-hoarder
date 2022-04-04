@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var can_move = true
+var can_move = false
 
 var snap = false
 
@@ -49,6 +49,7 @@ func get_input():
 	if not can_move:
 		velocity.x = 0
 		sprite.play(idle_name)
+		eyes.play("idle")
 		align_position_to_pixels()
 		return
 	velocity.x = 0

@@ -21,6 +21,25 @@ func _ready():
 	current_scene = get_node("hub")
 
 
+func play():
+	get_node("gui/count").visible = true
+	get_node("gui/menu").visible = false
+	player.can_move = true
+
+
+func pause():
+	get_node("gui/count").visible = false
+	get_node("gui/menu").visible = true
+	get_node("gui/menu").restart_button_active(current_scene_name != "hub")
+	get_node("gui/menu").grab_focus()
+	player.can_move = false
+
+
+func restart():
+	play()
+	load_scene(current_scene_name)
+
+
 func on_light_collect():
 	current_scene_lights += 1
 	lights_collected[current_scene_name] = max(lights_collected[current_scene_name], current_scene_lights)
@@ -57,5 +76,5 @@ func load_scene(scene_name):
 	player.ignore_teleport = true
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel") and current_scene_name != "hub":
-		load_scene(current_scene_name)
+	if Input.is_action_just_pressed("ui_pause"):
+		pause()
