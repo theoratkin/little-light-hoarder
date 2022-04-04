@@ -55,3 +55,7 @@ func load_scene(scene_name):
 	else:
 		player.global_position = current_scene.get_node("light_exit").global_position
 	player.ignore_teleport = true
+
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel") and current_scene_name != "hub":
+		load_scene(current_scene_name)
