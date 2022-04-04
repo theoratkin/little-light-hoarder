@@ -11,6 +11,6 @@ func _ready():
 	light_mask_viewport.add_child(light_mask_node)
 	light_mask_node.global_position = global_position
 
-func _on_light_body_entered(body):
+func _on_light_body_entered(_body):
 	light_mask_node.queue_free()
 	queue_free()
