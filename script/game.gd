@@ -19,6 +19,9 @@ func _ready():
 	light_node.texture = light_mask_viewport.get_texture()
 	get_node("light").visible = true
 	current_scene = get_node("hub")
+	
+	if OS.get_name() == "HTML5":
+		get_node("gui/title/container").visible = false
 
 
 func play():
