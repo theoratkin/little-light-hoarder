@@ -5,7 +5,7 @@ var can_move = true
 var snap = false
 
 var run_speed = 50
-var jump_speed = -140
+var jump_speed = 160
 var gravity = 400
 
 var velocity = Vector2()
@@ -58,7 +58,7 @@ func get_input():
 		_jump_buffer = JUMP_BUFFER
 	
 	if is_on_floor() and (jump or _jump_buffer > 0):
-		velocity.y = jump_speed
+		velocity.y = -jump_speed
 		_jump_buffer = 0
 	
 	if right:
