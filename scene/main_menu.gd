@@ -4,6 +4,9 @@ extends CenterContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grab_focus()
+	if OS.get_name() == "HTML5":
+		get_node("container/exit").visible = false
+		get_node("container/credits").focus_neighbour_bottom = NodePath("../play")
 
 
 func grab_focus():
