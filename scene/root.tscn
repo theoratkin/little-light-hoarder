@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scene/hub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scene/options_menu.gd" type="Script" id=10]
 [ext_resource path="res://scene/credits_menu.gd" type="Script" id=11]
 [ext_resource path="res://font/title.tres" type="DynamicFont" id=12]
+[ext_resource path="res://texture/arrow.png" type="Texture" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.333
@@ -95,8 +96,13 @@ position = Vector2( 112, 64 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 9, 122 )
+texture = ExtResource( 13 )
+
 [node name="player" type="KinematicBody2D" parent="."]
 position = Vector2( 8, 108 )
+scale = Vector2( -1, 1 )
 z_index = 1
 script = ExtResource( 2 )
 
