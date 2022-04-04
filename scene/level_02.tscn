@@ -5,7 +5,7 @@
 [ext_resource path="res://tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://prefab/teleporter.tscn" type="PackedScene" id=4]
 
-[node name="level" type="Node2D"]
+[node name="level_02" type="Node2D"]
 
 [node name="world" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )

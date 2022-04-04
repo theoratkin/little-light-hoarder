@@ -8,7 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var collected = get_node("/root/root").lights_collected
+	var collected = get_node("/root/root").get_lights_count()
 	var total = get_node("/root/root").total_lights
 	var p = float(collected) / total
 	if p > .1:
