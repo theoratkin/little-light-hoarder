@@ -14,6 +14,8 @@ var total_lights = 48
 var current_scene_lights = 0
 var lights_collected = {"hub" : 0}
 
+var paused = true
+
 func _ready():
 	player_start_pos = player.position
 	light_node.texture = light_mask_viewport.get_texture()
@@ -28,9 +30,13 @@ func play():
 	get_node("gui/count").visible = true
 	get_node("gui/menu").visible = false
 	player.can_move = true
+	paused = false
 
 
 func pause():
+	if paused:
+		return
+	paused = true
 	get_node("gui/count").visible = false
 	get_node("gui/menu").visible = true
 	get_node("gui/menu").restart_button_active(current_scene_name != "hub")
