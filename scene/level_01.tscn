@@ -6,10 +6,10 @@
 [ext_resource path="res://prefab/teleporter.tscn" type="PackedScene" id=4]
 
 [node name="level_01" type="Node2D"]
-position = Vector2( 184, 64 )
+position = Vector2( 224, 0 )
+scale = Vector2( -1, 1 )
 
 [node name="world" type="TileMap" parent="."]
-position = Vector2( -184, -64 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
@@ -20,7 +20,6 @@ __meta__ = {
 }
 
 [node name="lights" type="Node2D" parent="."]
-position = Vector2( -184, -64 )
 
 [node name="light" parent="lights" instance=ExtResource( 2 )]
 position = Vector2( 76, 64 )
@@ -47,8 +46,8 @@ position = Vector2( 207, 57 )
 position = Vector2( 96, 26 )
 
 [node name="light_exit" parent="." instance=ExtResource( 1 )]
-position = Vector2( -180, 41 )
+position = Vector2( 6, 105 )
 
 [node name="teleporter" parent="." instance=ExtResource( 4 )]
-position = Vector2( -196, 37 )
+position = Vector2( -12, 101 )
 scene = "hub"

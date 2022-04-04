@@ -73,7 +73,7 @@ func get_input():
 		if is_on_floor():
 			sprite.play("idle")
 			eyes.play("idle")
-		flip(false)
+		#flip(false)
 		align_position_to_pixels()
 	
 	if !is_on_floor():

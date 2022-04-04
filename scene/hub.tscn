@@ -104,19 +104,19 @@ texture = ExtResource( 2 )
 
 [node name="exit" type="Node2D" parent="."]
 
-[node name="light_exit" parent="exit" instance=ExtResource( 1 )]
+[node name="level_01" parent="exit" instance=ExtResource( 1 )]
 position = Vector2( 5, 104 )
 
-[node name="light_exit2" parent="exit" instance=ExtResource( 1 )]
+[node name="level_02" parent="exit" instance=ExtResource( 1 )]
 position = Vector2( 5, 65 )
 
-[node name="light_exit3" parent="exit" instance=ExtResource( 1 )]
+[node name="level_03" parent="exit" instance=ExtResource( 1 )]
 position = Vector2( 5, 25 )
 
-[node name="light_exit4" parent="exit" instance=ExtResource( 1 )]
+[node name="level_04" parent="exit" instance=ExtResource( 1 )]
 position = Vector2( 217, 25 )
 
-[node name="light_exit5" parent="exit" instance=ExtResource( 1 )]
+[node name="level_05" parent="exit" instance=ExtResource( 1 )]
 position = Vector2( 217, 66 )
 
 [node name="teleporters" type="Node2D" parent="."]

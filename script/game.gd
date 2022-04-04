@@ -38,6 +38,7 @@ func load_scene(scene_name):
 	if not scene_name in lights_collected:
 		lights_collected[scene_name] = 0
 	current_scene_lights = 0
+	var prev_name = current_scene_name
 	current_scene_name = scene_name
 	# clearing viewport lights
 	for n in light_mask_viewport.get_children():
@@ -46,8 +47,11 @@ func load_scene(scene_name):
 	if current_scene:
 		remove_child(current_scene)
 		current_scene.queue_free()
-	player.position = player_start_pos
-	player.ignore_teleport = true
 	var scene = load("res://scene/" + scene_name + ".tscn").instance()
 	add_child(scene)
 	current_scene = scene
+	if scene_name == "hub":
+		player.global_position = current_scene.get_node("exit/" + prev_name).global_position
+	else:
+		player.global_position = current_scene.get_node("light_exit").global_position
+	player.ignore_teleport = true
