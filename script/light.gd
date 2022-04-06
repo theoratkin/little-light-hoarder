@@ -9,9 +9,15 @@ onready var light_node = get_node("/root/root/light")
 
 var light_mask_node
 
+var ignore_time: float = .5
+
 func _ready():
 	if visible:
 		light_up()
+
+func _process(delta):
+	if ignore_time > 0:
+		ignore_time -= delta
 
 func light_up():
 	if not is_exit:
@@ -22,6 +28,8 @@ func light_up():
 	light_mask_node.global_position = global_position
 
 func _on_light_body_entered(_body):
+	if ignore_time > 0:
+		return
 	get_node("/root/root").on_light_collect()
 	light_mask_node.queue_free()
 	$shape.queue_free()
