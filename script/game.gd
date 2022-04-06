@@ -46,14 +46,21 @@ func pause():
 
 func restart():
 	play()
+	current_scene_lights = 0
+	update_lights_counter(get_lights_count())
 	load_scene(current_scene_name)
 
 
 func on_light_collect():
 	current_scene_lights += 1
-	lights_collected[current_scene_name] = max(lights_collected[current_scene_name], current_scene_lights)
-	get_node("gui/count/text").text = "%d/%d" % [get_lights_count(), total_lights]
+	var counter = get_lights_count()
+	if lights_collected[current_scene_name] <= current_scene_lights:
+		counter += current_scene_lights - lights_collected[current_scene_name]
+	update_lights_counter(counter)
 
+
+func update_lights_counter(count):
+	get_node("gui/count/text").text = "%d/%d" % [count, total_lights]
 
 func get_lights_count():
 	var sum = 0
@@ -63,6 +70,7 @@ func get_lights_count():
 
 
 func load_scene(scene_name):
+	lights_collected[current_scene_name] = max(lights_collected[current_scene_name], current_scene_lights)
 	if not scene_name in lights_collected:
 		lights_collected[scene_name] = 0
 	current_scene_lights = 0
