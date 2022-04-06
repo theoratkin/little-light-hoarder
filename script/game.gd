@@ -62,7 +62,7 @@ func update_lights_counter(count, plus = 0):
 	if plus == 0:
 		get_node("gui/count/text").text = "%d/%d" % [count, total_lights]
 	else:
-		get_node("gui/count/text").text = "%d+%d/%d" % [count, plus, total_lights]
+		get_node("gui/count/text").text = "%d(+%d)/%d" % [count, plus, total_lights]
 
 func get_lights_count():
 	var sum = 0
