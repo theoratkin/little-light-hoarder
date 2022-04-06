@@ -87,3 +87,5 @@ func load_scene(scene_name):
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_pause"):
 		pause()
+	if Input.is_action_just_pressed("restart") and current_scene_name != "hub":
+		restart()
