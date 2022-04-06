@@ -15,6 +15,12 @@ func grab_focus():
 
 func restart_button_active(state):
 	get_node("container/reset").disabled = not state
+	if not state:
+		get_node("container/play").focus_neighbour_bottom = NodePath("../options")
+		get_node("container/options").focus_neighbour_top = NodePath("../play")
+	else:
+		get_node("container/play").focus_neighbour_bottom = NodePath("")
+		get_node("container/options").focus_neighbour_top = NodePath("")
 
 
 func _on_exit_pressed():
