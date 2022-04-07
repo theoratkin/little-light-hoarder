@@ -86,6 +86,9 @@ func get_input(delta):
 		if !right and !left:
 			sprite.play("jump")
 			eyes.play("jump")
+	
+	if Input.is_action_just_pressed("down") and is_on_floor():
+		position = Vector2(position.x, position.y + 3)
 
 
 func _physics_process(delta):
