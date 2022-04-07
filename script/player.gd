@@ -61,8 +61,7 @@ func get_input(delta):
 		if jump:
 			_jump_buffer = JUMP_BUFFER
 	
-	var can_jump = is_on_floor() or \
-		(_air_time < JUMP_CYOTE and not _jump_in_progress)
+	var can_jump = _air_time < JUMP_CYOTE and not _jump_in_progress
 	var want_to_jump = jump or _jump_buffer > 0
 	
 	if (want_to_jump and can_jump):
