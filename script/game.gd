@@ -10,7 +10,7 @@ var player_start_pos
 var current_scene = null
 var current_scene_name = "hub"
 
-var total_lights = 48
+var total_lights = 50
 var current_scene_lights = 0
 var lights_collected = {"hub" : 0}
 
@@ -24,6 +24,8 @@ func _ready():
 	
 	if OS.get_name() == "HTML5":
 		get_node("gui/title/container").visible = false
+	
+	update_lights_counter(get_lights_count())
 
 
 func play():

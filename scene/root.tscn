@@ -172,7 +172,7 @@ modulate = Color( 1, 0.92549, 0.521569, 1 )
 margin_right = 896.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 4 )
-text = "0/48"
+text = "0/0"
 align = 1
 
 [node name="options" type="CenterContainer" parent="gui"]

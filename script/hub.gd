@@ -19,7 +19,7 @@ func _ready():
 		turn_lights_on(3)
 	if p > .6:
 		turn_lights_on(4)
-	if p > .8:
+	if p == 1:
 		turn_lights_on(5)
 
 

@@ -45,6 +45,9 @@ position = Vector2( 207, 57 )
 [node name="light8" parent="lights" instance=ExtResource( 2 )]
 position = Vector2( 96, 26 )
 
+[node name="light9" parent="lights" instance=ExtResource( 2 )]
+position = Vector2( 168, 33 )
+
 [node name="light_exit" parent="." instance=ExtResource( 1 )]
 position = Vector2( 6, 105 )
 
