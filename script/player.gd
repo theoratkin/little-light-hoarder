@@ -8,28 +8,24 @@ var run_speed = 50
 var jump_speed = 160
 var gravity = 400
 
-var ignore_teleport = false
+const JUMP_BUFFER = 0.3
+const JUMP_CYOTE = 0.1
+
+var idle_name = "idle"
 
 var velocity = Vector2()
 
-var startx
+var _jump_buffer = 0.0
+
+var _air_time = 0.0
+var _jump_in_progress = false
+var ignore_teleport = false
 
 onready var sprite = get_node("sprite")
 onready var eyes = get_node("eyes")
 
-var gender
-
-var idle_name = "idle"
-
-const JUMP_BUFFER = 0.3
-var _jump_buffer = 0.0
-
 func _ready():
-	#eyelids = get_node("eyelids")
-	#blink(true)
 	align_position_to_pixels()
-	startx = position.x
-	#set_active(false)
 
 
 func set_active(state):
@@ -45,7 +41,7 @@ func flip(state):
 	transform.x = Vector2(-1 if state else 1, 0)
 
 
-func get_input():
+func get_input(delta):
 	if not can_move:
 		velocity.x = 0
 		sprite.play(idle_name)
@@ -57,12 +53,22 @@ func get_input():
 	var left = Input.is_action_pressed('left')
 	var jump = Input.is_action_just_pressed('jump')
 	
-	if not is_on_floor() and jump:
-		_jump_buffer = JUMP_BUFFER
+	if is_on_floor():
+		_air_time = 0
+		_jump_in_progress = false
+	else:
+		_air_time += delta
+		if jump:
+			_jump_buffer = JUMP_BUFFER
 	
-	if is_on_floor() and (jump or _jump_buffer > 0):
+	var can_jump = is_on_floor() or \
+		(_air_time < JUMP_CYOTE and not _jump_in_progress)
+	var want_to_jump = jump or _jump_buffer > 0
+	
+	if (want_to_jump and can_jump):
 		velocity.y = -jump_speed
 		_jump_buffer = 0
+		_jump_in_progress = true
 	
 	if right:
 		flip(false)
@@ -86,7 +92,7 @@ func get_input():
 func _physics_process(delta):
 	ignore_teleport = false
 	velocity.y += gravity * delta
-	get_input()
+	get_input(delta)
 	if not snap:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
 	else:
