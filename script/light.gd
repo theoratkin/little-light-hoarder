@@ -31,7 +31,7 @@ func _on_light_body_entered(_body):
 	if ignore_time > 0:
 		return
 	get_node("/root/root").on_light_collect()
-	light_mask_node.queue_free()
+	light_mask_node.get_node("fade").play("fade")
 	$shape.queue_free()
 	$sprite.queue_free()
 	$particles.queue_free()
