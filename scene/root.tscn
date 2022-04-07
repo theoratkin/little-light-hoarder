@@ -8,9 +8,9 @@
 [ext_resource path="res://audio/sfx/water-cave__klangkobold__443061.mp3" type="AudioStream" id=6]
 [ext_resource path="res://audio/music/531506__andrewkn__ambient-meditation-in-eternity.mp3" type="AudioStream" id=7]
 [ext_resource path="res://theme.tres" type="Theme" id=8]
-[ext_resource path="res://scene/main_menu.gd" type="Script" id=9]
-[ext_resource path="res://scene/options_menu.gd" type="Script" id=10]
-[ext_resource path="res://scene/credits_menu.gd" type="Script" id=11]
+[ext_resource path="res://script/main_menu.gd" type="Script" id=9]
+[ext_resource path="res://script/options_menu.gd" type="Script" id=10]
+[ext_resource path="res://script/credits_menu.gd" type="Script" id=11]
 [ext_resource path="res://font/title.tres" type="DynamicFont" id=12]
 [ext_resource path="res://texture/arrow.png" type="Texture" id=13]
 

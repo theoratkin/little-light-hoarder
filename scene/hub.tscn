@@ -5,7 +5,7 @@
 [ext_resource path="res://tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://prefab/teleporter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://prefab/light_hub.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scene/hub.gd" type="Script" id=6]
+[ext_resource path="res://script/hub.gd" type="Script" id=6]
 
 [node name="hub" type="Node2D"]
 script = ExtResource( 6 )
